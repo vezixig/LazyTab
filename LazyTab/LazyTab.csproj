@@ -11,4 +11,10 @@
     <PackageReference Include="DryIoc" Version="5.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="TabB.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

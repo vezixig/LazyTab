@@ -8,6 +8,15 @@
     using DryIoc;
     using IContainer = DryIoc.IContainer;
 
+    public class LazyTabBase : UserControl
+    {
+        #region Properties
+
+        public required IContainer Container { get; set; }
+
+        #endregion
+    }
+
     /// <summary>Interaction logic for LazyTab.xaml</summary>
     public class LazyTab<T> : UserControl, INotifyPropertyChanged, IDisposable
         where T : UserControl
