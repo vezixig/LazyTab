@@ -5,17 +5,6 @@
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
     using System.Windows.Controls;
-    using DryIoc;
-    using IContainer = DryIoc.IContainer;
-
-    public class LazyTabBase : UserControl
-    {
-        #region Properties
-
-        public required IContainer Container { get; set; }
-
-        #endregion
-    }
 
     /// <summary>Interaction logic for LazyTab.xaml</summary>
     public class LazyTab<T> : UserControl, INotifyPropertyChanged, IDisposable
@@ -23,7 +12,8 @@
     {
         #region Fields
 
-        private readonly IContainer _container;
+        private readonly Func<T> _contentFactory;
+
 
         /// <summary>Backing field for <see cref="IsActive" />.</summary>
         private bool _isActive;
@@ -34,10 +24,11 @@
         #endregion
 
         /// <summary>Initializes a new instance of the <see cref="LazyTab{T}" /> class.</summary>
-        public LazyTab(IContainer container)
+        public LazyTab(Func<T> contentFactory, string tabTitle, bool isActive = false)
         {
-            _container = container;
-            DataContext = this;
+            _contentFactory = contentFactory ?? throw new ArgumentNullException(nameof(contentFactory), "The content factory was not injected.");
+            TabTitle = tabTitle;
+            IsActive = isActive;
         }
 
         #region Delegates & Events
@@ -45,6 +36,7 @@
         /// <summary>Event fired after the tab is opened for the first time.</summary>
         public event Action? ContentInitialized;
 
+        /// <inheritdoc />
         public event PropertyChangedEventHandler? PropertyChanged;
 
         #endregion
@@ -57,16 +49,13 @@
             get => _isActive;
             set
             {
-                if (SetProperty(ref _isActive, value) && value)
-                    if (Content == null)
-                    {
-                        Content = _container.Resolve<T>();
-                        ContentInitialized?.Invoke();
-                    }
+                if (!SetProperty(ref _isActive, value) || !value || Content is not null) return;
+                Content = _contentFactory.Invoke();
+                ContentInitialized?.Invoke();
             }
         }
 
-        /// <summary>Gets or sets the title of the tab.</summary>
+        /// <summary>Gets or sets the title of the tab shown in the tab control register.</summary>
         public string TabTitle
         {
             get => _tabTitle;
@@ -84,10 +73,10 @@
             GC.SuppressFinalize(this);
         }
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
             => PropertyChanged?.Invoke(this, new(propertyName));
 
-        protected bool SetProperty<TProp>(ref TProp field, TProp value, [CallerMemberName] string propertyName = null)
+        private bool SetProperty<TProp>(ref TProp field, TProp value, [CallerMemberName] string? propertyName = null)
         {
             if (EqualityComparer<TProp>.Default.Equals(field, value)) return false;
 

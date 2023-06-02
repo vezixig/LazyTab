@@ -1,4 +1,4 @@
-﻿namespace LazyTab
+﻿namespace Demo.DryIoC
 {
     using System.Diagnostics;
 

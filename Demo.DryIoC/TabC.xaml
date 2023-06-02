@@ -1,9 +1,9 @@
 ﻿<UserControl
-    x:Class="LazyTab.TabA"
+    x:Class="Demo.DryIoC.TabC"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Background="DarkSlateBlue">
+    Background="DarkOliveGreen">
     <Grid>
-        <Label Content="Tab A" />
+        <Label Content="Tab C" />
     </Grid>
 </UserControl>
