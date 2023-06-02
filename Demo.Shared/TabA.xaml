@@ -1,0 +1,9 @@
+﻿<UserControl
+    x:Class="Demo.Shared.TabA"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="DarkSlateBlue">
+    <Grid>
+        <Label Content="Tab A" />
+    </Grid>
+</UserControl>

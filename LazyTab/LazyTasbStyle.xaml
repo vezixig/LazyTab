@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="LazyTabsControl" TargetType="{x:Type TabControl}">
+        <Style.Resources>
+            <Style TargetType="{x:Type TabItem}">
+                <Setter Property="Header" Value="{Binding TabTitle}" />
+                <Setter Property="IsSelected" Value="{Binding IsActive, Mode=TwoWay}" />
+            </Style>
+        </Style.Resources>
+    </Style>
+</ResourceDictionary>
