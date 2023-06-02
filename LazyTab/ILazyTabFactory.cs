@@ -1,7 +1,6 @@
-﻿namespace Demo.DryIoC
+﻿namespace LazyTab
 {
     using System.Windows.Controls;
-    using LazyTab;
 
     /// <summary>Factory to create generic instances of <see cref="LazyTab{T}" />.</summary>
     public interface ILazyTabFactory

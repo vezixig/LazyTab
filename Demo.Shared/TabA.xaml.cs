@@ -1,4 +1,4 @@
-﻿namespace Demo.DryIoC
+﻿namespace Demo.Shared
 {
     using System.Diagnostics;
 

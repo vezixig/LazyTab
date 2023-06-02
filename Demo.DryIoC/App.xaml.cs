@@ -1,6 +1,8 @@
 ﻿namespace Demo.DryIoC
 {
     using DryIoc;
+    using LazyTab;
+    using Shared;
 
     /// <summary>Interaction logic for App.xaml</summary>
     public partial class App
@@ -13,7 +15,7 @@
             container.Register<TabA>();
             container.Register<TabB>();
             container.Register<TabC>();
-            container.Register<ILazyTabFactory, LazyTabFactory>();
+            container.Register<ILazyTabFactory, LazyTabFactory>(Reuse.Singleton);
 
             var window = container.Resolve<MainWindow>();
             window.Show();

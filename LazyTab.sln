@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.DryIoC", "Demo.DryIoC\Demo.DryIoC.csproj", "{69B83302-7E16-49AD-AFDE-49A3B5E486BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Autofac", "Demo.Autofac\Demo.Autofac.csproj", "{8A5CFDA2-CAD0-442C-9A12-0FC44B5A9EAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Shared", "Demo.Shared\Demo.Shared.csproj", "{E011945D-5829-4239-A5D8-0C57147EC820}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,14 @@ Global
 		{69B83302-7E16-49AD-AFDE-49A3B5E486BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69B83302-7E16-49AD-AFDE-49A3B5E486BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69B83302-7E16-49AD-AFDE-49A3B5E486BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A5CFDA2-CAD0-442C-9A12-0FC44B5A9EAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A5CFDA2-CAD0-442C-9A12-0FC44B5A9EAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A5CFDA2-CAD0-442C-9A12-0FC44B5A9EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A5CFDA2-CAD0-442C-9A12-0FC44B5A9EAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E011945D-5829-4239-A5D8-0C57147EC820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E011945D-5829-4239-A5D8-0C57147EC820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E011945D-5829-4239-A5D8-0C57147EC820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E011945D-5829-4239-A5D8-0C57147EC820}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

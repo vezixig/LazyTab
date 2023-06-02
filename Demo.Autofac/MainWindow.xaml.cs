@@ -1,4 +1,4 @@
-﻿namespace Demo.DryIoC
+﻿namespace Demo.Autofac
 {
     using System.Collections.ObjectModel;
     using System.Windows.Controls;
